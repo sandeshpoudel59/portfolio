@@ -78,3 +78,9 @@ Route::get('/contact', function (PersonDataService $personDataService) {
 
     return view('pages.contact', compact('personData'));
 })->name('contact');
+
+Route::get('/blog', function (PersonDataService $personDataService) {
+    $personData = $personDataService->getData();
+
+    return view('pages.blog', compact('personData'));
+})->name('blog');

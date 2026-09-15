@@ -217,18 +217,46 @@
         </div>
 
 
-        {{-- =============================================================
-             Copyright
-        ============================================================== --}}
-        <div class="border-t border-gray-800 py-6">
+{{-- =============================================================
+     Copyright & Bottom Navigation
+============================================================== --}}
+<div class="flex flex-col gap-4 border-t border-gray-800 py-6 md:flex-row md:items-center md:justify-between">
 
-            <p class="text-center text-sm text-gray-500">
-                &copy; {{ date('Y') }}
-                {{ $personData['personal']['fullName'] ?? 'Your Name' }}.
-                All rights reserved.
-            </p>
+    {{-- Copyright --}}
+    <p class="text-center text-sm text-gray-500 md:text-left">
+        &copy; {{ date('Y') }}
+        {{ $personData['personal']['fullName'] ?? 'Your Name' }}.
+        All rights reserved.
+    </p>
 
-        </div>
+
+    {{-- Bottom Navigation --}}
+    <nav class="flex items-center justify-center gap-6 md:justify-end">
+
+        <a
+            href="{{ route('about') }}"
+            class="text-sm text-gray-500 transition hover:text-white"
+        >
+            About
+        </a>
+
+        <a
+            href="{{ route('contact') }}"
+            class="text-sm text-gray-500 transition hover:text-white"
+        >
+            Contact
+        </a>
+
+        <a
+            href="{{ route('blog') }}"
+            class="text-sm text-gray-500 transition hover:text-white"
+        >
+            Blog
+        </a>
+
+    </nav>
+
+</div>
 
     </x-global.container>
 

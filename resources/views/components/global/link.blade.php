@@ -11,9 +11,7 @@
         'muted' => 'text-gray-500 hover:text-gray-900',
         'white' => 'text-gray-300 hover:text-white',
     ];
-@endphp
 
-@php
     $variantClass = $variants[$variant] ?? $variants['default'];
 @endphp
 
