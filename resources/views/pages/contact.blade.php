@@ -100,6 +100,13 @@
 
         </div>
 
+        <div class="mt-12">
+        <h2 class="text-lg font-semibold">
+                    Contact Form
+                </h2>
+        <x-contact.contact-form />
+</div>
+
         @if(!empty($personData['socialLinks']))
             <div class="mt-12">
 
