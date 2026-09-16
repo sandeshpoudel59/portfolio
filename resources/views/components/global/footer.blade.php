@@ -247,13 +247,6 @@
             Contact
         </a>
 
-        <a
-            href="{{ route('blog') }}"
-            class="text-sm text-gray-500 transition hover:text-white"
-        >
-            Blog
-        </a>
-
     </nav>
 
 </div>
