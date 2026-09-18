@@ -1,0 +1,2 @@
+@props(['src'=>null,'title'=>'Media'])
+<div class="overflow-hidden rounded-xl border border-gray-200 bg-white"><div class="aspect-video bg-gray-100">@if($src)<img src="{{ $src }}" alt="{{ $title }}" class="h-full w-full object-cover">@endif</div><div class="p-3 text-sm font-medium">{{ $title }}</div></div>

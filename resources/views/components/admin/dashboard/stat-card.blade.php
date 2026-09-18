@@ -1,0 +1,9 @@
+@props([
+    'label',
+    'value' => 0,
+])
+
+<div class="rounded-xl border border-gray-200 bg-white p-5 shadow-sm">
+    <p class="text-sm font-medium text-gray-500">{{ $label }}</p>
+    <p class="mt-2 text-3xl font-bold tracking-tight text-gray-900">{{ $value }}</p>
+</div>

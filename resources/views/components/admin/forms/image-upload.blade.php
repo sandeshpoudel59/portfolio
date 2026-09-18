@@ -1,0 +1,2 @@
+@props(['name','label'=>null,'accept'=>'image/*'])
+<div><label class="mb-2 block text-sm font-medium text-gray-700">{{ $label }}</label><input type="file" name="{{ $name }}" accept="{{ $accept }}" {{ $attributes->merge(['class'=>'block w-full rounded-lg border border-gray-300 bg-white p-2 text-sm']) }}></div>

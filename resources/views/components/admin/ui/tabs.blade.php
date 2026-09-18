@@ -1,0 +1,2 @@
+@props(['tabs'=>[],'active'=>null])
+<div class="border-b border-gray-200"><nav class="flex gap-6 overflow-x-auto">@foreach($tabs as $key=>$label)<a href="{{ $label['href'] ?? '#' }}" class="border-b-2 px-1 py-3 text-sm font-medium {{ $key === $active ? 'border-gray-900 text-gray-900' : 'border-transparent text-gray-500' }}">{{ is_array($label) ? $label['label'] : $label }}</a>@endforeach</nav></div>

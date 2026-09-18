@@ -84,3 +84,4 @@ Route::get('/blog', function (PersonDataService $personDataService) {
 
     return view('pages.blog', compact('personData'));
 })->name('blog');
+

@@ -1,0 +1,2 @@
+@props(['name','label'=>null,'value'=>'#000000'])
+<div><label class="mb-2 block text-sm font-medium text-gray-700">{{ $label }}</label><input type="color" name="{{ $name }}" value="{{ $value }}" class="h-10 w-16 rounded border border-gray-300"></div>
