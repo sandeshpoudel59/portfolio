@@ -1,12 +1,35 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\LoginController;
 
+/*
+|--------------------------------------------------------------------------
+| Authentication
+|--------------------------------------------------------------------------
+*/
+
 Route::get('/login', [LoginController::class, 'showLoginForm'])
-->name('login');
+    ->name('login');
 
 Route::post('/login', [LoginController::class, 'login'])
-->name('login.submit');
+    ->name('login.submit');
 
 Route::post('/logout', [LoginController::class, 'logout'])
-->name('logout');
+    ->middleware('auth')
+    ->name('logout');
+
+
+/*
+|--------------------------------------------------------------------------
+| Admin
+|--------------------------------------------------------------------------
+*/
+
+Route::middleware('auth')->prefix('admin')->name('admin.')->group(function () {
+
+    Route::get('/', function () {
+        return view('admin.dashboard.index');
+    })->name('dashboard');
+
+});
