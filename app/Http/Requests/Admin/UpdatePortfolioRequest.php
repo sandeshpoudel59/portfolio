@@ -8,7 +8,7 @@ class UpdatePortfolioRequest extends FormRequest
 {
     public function authorize(): bool
     {
-        return $this->user()?->is_admin === true;
+        return (bool) $this->user()?->is_admin;
     }
 
     public function rules(): array

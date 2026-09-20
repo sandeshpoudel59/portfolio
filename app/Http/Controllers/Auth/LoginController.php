@@ -22,7 +22,11 @@ class LoginController extends Controller
 
         $remember = $request->boolean('remember');
 
-        if (Auth::attempt($credentials, $remember)) {
+        if (Auth::attempt([
+            'email' => $credentials['email'],
+            'password' => $credentials['password'],
+            'is_admin' => true,
+        ], $remember)) {
 
             $request->session()->regenerate();
             $request->session()->put('authenticated', true);

@@ -18,18 +18,3 @@ Route::post('/login', [LoginController::class, 'login'])
 Route::post('/logout', [LoginController::class, 'logout'])
     ->middleware('auth')
     ->name('logout');
-
-
-/*
-|--------------------------------------------------------------------------
-| Admin
-|--------------------------------------------------------------------------
-*/
-
-Route::middleware('auth')->prefix('admin')->name('admin.')->group(function () {
-
-    Route::get('/', function () {
-        return view('admin.dashboard.index');
-    })->name('dashboard');
-
-});

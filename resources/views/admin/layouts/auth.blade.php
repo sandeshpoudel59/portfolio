@@ -1,39 +1,52 @@
 <!DOCTYPE html>
-
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-
+<html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <title>
+        @yield('title', 'Authentication')
+        - {{ config('app.name', 'Portfolio') }}
+    </title>
 
-<meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
->
+    <meta name="robots" content="noindex, nofollow">
 
-<title>
-    @yield('title', 'Admin Login') - {{ config('app.name', 'Portfolio') }}
-</title>
+    @vite([
+        'resources/css/app.css',
+        'resources/js/app.js'
+    ])
 
-@vite(['resources/css/app.css', 'resources/js/app.js'])
-
-
+    @stack('head')
 </head>
 
-<body class="min-h-screen bg-gray-100">
+<body class="min-h-screen bg-gray-100 text-gray-900 antialiased">
 
+    <main class="flex min-h-screen items-center justify-center p-4 sm:p-6">
+        <div class="w-full max-w-md">
 
-<main class="flex min-h-screen items-center justify-center px-4 py-12">
+            {{-- Brand --}}
+            <div class="mb-8 text-center">
+                <a
+                    href="{{ route('home') }}"
+                    class="text-2xl font-bold tracking-tight text-gray-900"
+                >
+                    {{ config('app.name', 'Portfolio') }}
+                </a>
 
-    <div class="w-full max-w-md">
+                <p class="mt-2 text-sm text-gray-500">
+                    Administration
+                </p>
+            </div>
 
-        @yield('content')
+            {{-- Notifications --}}
+            @include('admin.layouts.partials.notifications')
 
-    </div>
+            @yield('content')
 
-</main>
+        </div>
+    </main>
 
+    @stack('scripts')
 
 </body>
-
 </html>
