@@ -53,6 +53,22 @@
                 Portfolio
             </a>
 
+            {{-- Theme --}}
+            <a
+                href="{{ route('admin.theme.index') }}"
+                class="mb-1 flex items-center rounded-lg px-3 py-2.5 text-sm font-medium transition
+                {{ request()->routeIs('admin.theme.*')
+                    ? 'bg-gray-900 text-white'
+                    : 'text-gray-700 hover:bg-gray-100' }}"
+            >
+                <svg class="mr-3 h-5 w-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"
+                        d="M12 3v2m0 14v2m9-9h-2M5 12H3m13.657 6.343l-1.414-1.414M8.757 8.757L7.343 7.343m9.314 0l-1.414 1.414M8.757 15.243l-1.414 1.414M12 7a5 5 0 100 10 5 5 0 000-10z"/>
+                </svg>
+
+                Theme
+            </a>
+
             {{-- Content --}}
             <div class="mt-7">
 
@@ -149,6 +165,11 @@
             <a href="{{ route('admin.portfolio.edit') }}"
                class="block rounded-lg px-3 py-3 text-sm font-medium hover:bg-gray-100">
                 Portfolio
+            </a>
+
+            <a href="{{ route('admin.theme.index') }}"
+               class="block rounded-lg px-3 py-3 text-sm font-medium hover:bg-gray-100">
+                Theme
             </a>
 
             @foreach ([

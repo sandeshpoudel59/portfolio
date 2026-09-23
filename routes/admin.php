@@ -14,6 +14,28 @@ Route::middleware(['web', 'auth', 'admin'])
         Route::get('/portfolio', [PortfolioController::class, 'edit'])->name('portfolio.edit');
         Route::put('/portfolio', [PortfolioController::class, 'update'])->name('portfolio.update');
 
+        Route::prefix('theme')->name('theme.')->group(function () {
+            Route::get('/', function () {
+                return view('admin.theme.index');
+            })->name('index');
+
+            Route::get('/colors', function () {
+                return view('admin.theme.colors');
+            })->name('colors');
+
+            Route::get('/typography', function () {
+                return view('admin.theme.typography');
+            })->name('typography');
+
+            Route::get('/layout', function () {
+                return view('admin.theme.layout');
+            })->name('layout');
+
+            Route::get('/custom-css', function () {
+                return view('admin.theme.custom-css');
+            })->name('custom-css');
+        });
+
         Route::prefix('content/{section}')
             ->whereIn('section', ['projects', 'experience', 'education', 'achievements', 'certifications', 'services'])
             ->name('content.')
