@@ -6,13 +6,14 @@
 
 @php
     $variants = [
-        'default' => 'text-gray-700 hover:text-gray-950',
-        'underline' => 'text-gray-700 underline-offset-4 hover:underline',
-        'muted' => 'text-gray-500 hover:text-gray-900',
-        'white' => 'text-gray-300 hover:text-white',
+        'default' => 'hover:text-gray-950',
+        'underline' => 'underline-offset-4 hover:underline',
+        'muted' => 'hover:text-gray-900',
+        'white' => 'hover:text-white',
     ];
 
     $variantClass = $variants[$variant] ?? $variants['default'];
+    $themeText = data_get($personData ?? [], 'theme.text_color', '#111827');
 @endphp
 
 <a
@@ -21,12 +22,10 @@
         target="_blank"
         rel="noopener noreferrer"
     @endif
-
-   
-
-{{ $attributes->merge([
-    'class' => "transition {$variantClass}"
-]) }}
+    style="color: {{ $themeText }};"
+    {{ $attributes->merge([
+        'class' => "transition {$variantClass}"
+    ]) }}
 >
     {{ $slot }}
 </a>

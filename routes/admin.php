@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\PortfolioController;
+use App\Http\Controllers\Admin\ThemeController;
 use App\Http\Controllers\Admin\ContentController;
 use Illuminate\Support\Facades\Route;
 
@@ -14,26 +15,16 @@ Route::middleware(['web', 'auth', 'admin'])
         Route::get('/portfolio', [PortfolioController::class, 'edit'])->name('portfolio.edit');
         Route::put('/portfolio', [PortfolioController::class, 'update'])->name('portfolio.update');
 
-        Route::prefix('theme')->name('theme.')->group(function () {
-            Route::get('/', function () {
-                return view('admin.theme.index');
-            })->name('index');
-
-            Route::get('/colors', function () {
-                return view('admin.theme.colors');
-            })->name('colors');
-
-            Route::get('/typography', function () {
-                return view('admin.theme.typography');
-            })->name('typography');
-
-            Route::get('/layout', function () {
-                return view('admin.theme.layout');
-            })->name('layout');
-
-            Route::get('/custom-css', function () {
-                return view('admin.theme.custom-css');
-            })->name('custom-css');
+        Route::prefix('theme')->name('theme.')->controller(ThemeController::class)->group(function () {
+            Route::get('/', 'index')->name('index');
+            Route::get('/colors', 'colors')->name('colors');
+            Route::post('/colors', 'updateColors')->name('colors.update');
+            Route::get('/typography', 'typography')->name('typography');
+            Route::post('/typography', 'updateTypography')->name('typography.update');
+            Route::get('/layout', 'layout')->name('layout');
+            Route::post('/layout', 'updateLayout')->name('layout.update');
+            Route::get('/custom-css', 'customCss')->name('custom-css');
+            Route::post('/custom-css', 'updateCustomCss')->name('custom-css.update');
         });
 
         Route::prefix('content/{section}')

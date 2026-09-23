@@ -8,8 +8,11 @@
 ])
 
 @php
+    $accent = data_get($personData ?? [], 'theme.accent_color', '#f59e0b');
+    $primaryText = data_get($personData ?? [], 'theme.primary_color', '#111827');
+
     $variants = [
-        'primary' => 'bg-indigo-600 text-white hover:bg-indigo-700 focus:ring-indigo-500',
+        'primary' => 'text-white hover:opacity-90 focus:ring-indigo-500',
         'secondary' => 'bg-gray-100 text-gray-900 hover:bg-gray-200 focus:ring-gray-400',
         'outline' => 'border border-gray-300 text-gray-700 hover:bg-gray-50 focus:ring-gray-400',
         'danger' => 'bg-red-600 text-white hover:bg-red-700 focus:ring-red-500',
@@ -34,6 +37,7 @@
 @if ($href)
     <a
         href="{{ $href }}"
+        style="background-color: {{ $variant === 'primary' ? $accent : 'transparent' }}; color: {{ $variant === 'primary' ? $primaryText : 'inherit' }};"
         {{ $attributes->merge(['class' => $classes]) }}
     >
         @if ($icon && $iconPosition === 'left')
@@ -49,6 +53,7 @@
 @else
     <button
         type="{{ $type }}"
+        style="background-color: {{ $variant === 'primary' ? $accent : 'transparent' }}; color: {{ $variant === 'primary' ? $primaryText : 'inherit' }};"
         {{ $attributes->merge(['class' => $classes]) }}
     >
         @if ($icon && $iconPosition === 'left')

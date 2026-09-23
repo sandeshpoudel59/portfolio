@@ -1,4 +1,4 @@
-<header class="sticky top-0 z-50 border-b border-gray-200 bg-white/95 backdrop-blur">
+<header class="sticky top-0 z-50 border-b border-gray-200 backdrop-blur" style="background-color: {{ data_get($personData ?? [], 'theme.background_color', '#ffffff') }}; opacity: 0.96;">
 
     <x-global.container>
 
@@ -6,7 +6,8 @@
 
             <a
                 href="{{ route('home') }}"
-                class="text-xl font-bold tracking-tight text-gray-900"
+                class="text-xl font-bold tracking-tight"
+                style="color: {{ data_get($personData ?? [], 'theme.text_color', '#111827') }};"
             >
                 {{ $personData['personal']['fullName'] ?? 'Your Name' }}
             </a>
